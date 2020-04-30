@@ -6,17 +6,16 @@ This idea is inspired from my personal experience with job hunting. It is import
 
 I believe there are many people doing the same thing like I did but the process of collecting skills in job descriptions and searching online courses from websites is not quite easy. That is what our project would like to opitimize...
 
-## Core Functionality
+## Functionality
 User submits a job description and the website will list out recommended online courses for each skill order by its frequency
 
 ## Design
-* Architecture
-
-* Workflow
-
-* data scraping
-* why we choose elastic search
-* how we extract skills from job description
+* architecture
+* data
+  * why we choose elastic search 
+  * data scraping
+* business logic 
+  * how we extract skills from job description 
 
 ## Demo
 
