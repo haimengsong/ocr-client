@@ -1,67 +1,30 @@
 import * as React from 'react';
 import './App.css';
+import CourseList from './CourseList';
+import JobDescriptionForm from "./JobDescriptionForm";
 
-import logo from './logo.svg';
+class App extends React.Component<any, any> {
 
-interface Course {
-	id: number;
-	courseName: string;
-}
-
-interface AppProps {
-	
-}
-
-interface AppState {
-	courses: Array<Course>;
-	isLoading: boolean;
-}
-
-class App extends React.Component<AppProps, AppState> {
-
-   constructor(props: AppProps) {
-   	super(props);
-
-   	this.state = {
-   		courses: [],
-   		isLoading: false
-   	}
-   }
- 
+    constructor (props: any) {
+        super(props)
+        this.state = {data: {courses: [], isLoading: false}}
+        this.onUpdate = this.onUpdate.bind(this)
+    }
 
     render() {
-
-  	const {courses, isLoading} = this.state;
-
-  	if(isLoading) {
-  		return <p>Loading...</p>;
-  	}
 
     return (
       <div className="App">
         <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
+          <h1 className="App-title">Online Course Recommendation</h1>
         </header>
-        <div>
-        	<h2> Course List</h2>
-        	{courses.map((course: Course) => 
-        		<div key={course.id}>
-        			{course.courseName}
-        		</div>
-        	)}
-        </div>
+        <JobDescriptionForm onUpdate={this.onUpdate}/>
+        <CourseList data={this.state.data} />
       </div>
     );
   }
 
-  componentDidMount() {
-  	this.setState({isLoading: true});
-
-  	fetch('http://localhost:8080/courses')
-  		.then(response => response.json())
-  		.then(data => this.setState({courses: data, isLoading: false}));
-  }
+  onUpdate (cdata: any) { this.setState({data: cdata}) }
 }
 
 export default App;
