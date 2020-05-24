@@ -17,7 +17,7 @@ User can view recommended online courses for each skill order by its frequency
   * Data Access Layer: ElasticSearch Java API
   * Data Store: ElasticSearch  
 * data model \
-[[https://github.com/haimengsong/ocr-server/blob/master/course.png|alt=course]]
+![alt text](https://github.com/haimengsong/ocr-server/blob/master/course.png)
 * data store
 * data scraping
    * sources: Coursera (more in future)
