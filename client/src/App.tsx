@@ -12,6 +12,14 @@ interface CourseListState {
 export interface Course {
     id: number;
     courseName: string;
+    description: string;
+    url: string;
+    skills: string
+    score: number
+    enrollment: string
+    level: string
+    price: string
+    source: string
 }
 
 class App extends React.Component<any, CourseListState> {

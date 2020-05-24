@@ -1,4 +1,5 @@
 import * as React from 'react';
+import './JobDescriptionForm.css';
 
 class JobDescriptionForm extends React.Component<any, any> {
 
@@ -8,7 +9,7 @@ class JobDescriptionForm extends React.Component<any, any> {
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-    async handleSubmit(event: any) {
+    handleSubmit(event: any) {
         event.preventDefault();
 
         const jd = new FormData(event.target).get('jd');
@@ -40,7 +41,7 @@ class JobDescriptionForm extends React.Component<any, any> {
         return (
             <form onSubmit={this.handleSubmit}>
                 <p>{this.state.info}</p>
-                <label htmlFor="jd">Job Description</label>
+                <label htmlFor="jd">Paste Your Job Description Here</label>
                 <br />
                 <input id="jd" name="jd" type="text" />
                 <br />
