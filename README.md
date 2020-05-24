@@ -16,12 +16,18 @@ User can view recommended online courses for each skill order by its frequency
   * Business Logic: Spring, SpringMVC, SpringBoot
   * Data Access Layer: Elasticsearch Java API
   * Data Store: ElasticSearch  
-* data store and scraping
-  * why choose elastic search 
-  * data scraping
+* data model \
+Course (course name, description, url, skills, score, enrollment, level, price, source)
+* data store
+* data scraping
+   * sources: Coursera (more in future)
+   * technology: HtmlUnit, XPath
+   * when to scrape and scrape how much data
+   * what if source data updated
+* cache
 * business logic 
   * how to extract skills from job description 
-
+  * rank criteria
 ## Demo
 
 ## Future work
