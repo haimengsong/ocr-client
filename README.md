@@ -14,10 +14,10 @@ User can view recommended online courses for each skill order by its frequency
 * web architecture
   * Represent Layer: HTML5, CSS, React
   * Business Logic: Spring, SpringMVC, SpringBoot
-  * Data Access Layer: Elasticsearch Java API
+  * Data Access Layer: ElasticSearch Java API
   * Data Store: ElasticSearch  
 * data model \
-Course (course name, description, url, skills, score, enrollment, level, price, source)
+[[https://github.com/haimengsong/repository/ocr-client/master/course.png|alt=course]]
 * data store
 * data scraping
    * sources: Coursera (more in future)
@@ -29,7 +29,6 @@ Course (course name, description, url, skills, score, enrollment, level, price, 
   * how to extract skills from job description 
   * rank criteria
 ## Demo
-
 ## Future work
 
 
