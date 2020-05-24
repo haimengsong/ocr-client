@@ -1,25 +1,16 @@
 import * as React from 'react';
 
-interface CourseListState {
-    courses: Array<Course>;
-    isLoading: boolean;
-}
+import { Course } from './App';
 
-interface Course {
-    id: number;
-    courseName: string;
-}
-
-class CourseList extends React.Component<any, CourseListState> {
+class CourseList extends React.Component<any, any> {
 
     constructor (props: any) {
         super(props)
-        this.state = this.props.data
     }
 
     render() {
 
-        const {courses, isLoading} = this.state;
+        const {courses, isLoading} = this.props.data;
 
         if(isLoading) {
             return <p>Loading...</p>;
@@ -27,7 +18,6 @@ class CourseList extends React.Component<any, CourseListState> {
 
         return (
             <div>
-                <h2> Course List</h2>
                 {courses.map((course: Course) =>
                     <div key={course.id}>
                         {course.courseName}

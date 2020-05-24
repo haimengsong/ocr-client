@@ -4,16 +4,14 @@ class JobDescriptionForm extends React.Component<any, any> {
 
     constructor(props: any) {
         super(props);
+        this.state = {info:''}
         this.handleSubmit = this.handleSubmit.bind(this);
-
-        this.state = {test: this.props.data}
     }
 
-    handleSubmit(event: any) {
+    async handleSubmit(event: any) {
         event.preventDefault();
 
-        const data = new FormData(event.target).get('jd');
-        this.setState({test:data})
+        const jd = new FormData(event.target).get('jd');
 
         this.props.onUpdate({isLoading: true})
 
@@ -23,20 +21,29 @@ class JobDescriptionForm extends React.Component<any, any> {
                 'Content-Type': 'text/plain'
             },
             method: 'POST',
-            body: data
+            body: jd
+        }).then(response => {
+            if (response.ok) {
+                return response.json();
+            } else {
+                throw new Error('Something went wrong ...');
+            }
+        }).then(data => {
+            this.props.onUpdate({courses: data, isLoading: false});
+        }).catch(error => {
+            this.setState({info:error.toString()})
         })
-            .then(response => response.json())
-            .then(rdata => this.props.onUpdate({courses: rdata, isLoading: false}));
 
-        this.setState({test: this.props.data})
     }
 
     render() {
         return (
             <form onSubmit={this.handleSubmit}>
-                <p>{this.state.test}</p>
-                <label htmlFor="jd">Paste a job description: </label>
+                <p>{this.state.info}</p>
+                <label htmlFor="jd">Job Description</label>
+                <br />
                 <input id="jd" name="jd" type="text" />
+                <br />
                 <button type="submit">Submit</button>
             </form>
         );
