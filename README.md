@@ -8,26 +8,33 @@ I believe there are many people doing the same thing like I did but the process 
 
 ## Requirement
 User can submit a job description \
-User can view recommended online courses for each skill order by its frequency
+User can view the top 10 best online courses from multiple sources with highest score for each skill order by its frequency
 
 ## Design
 * web architecture
   * Represent Layer: HTML5, CSS, React
   * Business Logic: Spring, SpringMVC, SpringBoot
   * Data Access Layer: ElasticSearch Java API
-  * Data Store: ElasticSearch  
+  * Data Store: MongoDB  
 * data model \
 ![alt text](https://github.com/haimengsong/ocr-server/blob/master/course.png)
-* data store
+* choice of data store \
+choose MongoDB as our data store for the following reasons:
+1. the schema of data model is not fixed and may change (compared with relational database)
+2. no need to support join and transaction (compared with relational database)
+3. write fast (compared with relational database)
+4. easy to manage data (compared with elasticsearch)
 * data scraping
-   * sources: Coursera (more in future)
+   * sources: Coursera (more in future work)
    * technology: HtmlUnit, XPath
-   * when to scrape and scrape how much data
-   * what if source data updated
-* cache
+   * workflow
+* cache \
+we use Redis as in-memory database to store the top 10 best courses for each skill and each request can directly read the result from Redis
 * business logic 
-  * how to extract skills from job description 
+  * extract skills from job description 
   * rank criteria
+currently we are just simply ranking the courses by its score
+  
 ## Demo
 ## Future work
 
