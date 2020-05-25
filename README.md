@@ -14,7 +14,7 @@ User can view the top 10 best online courses from multiple sources with highest 
 * web architecture
   * Represent Layer: HTML5, CSS, React
   * Business Logic: Spring, SpringMVC, SpringBoot
-  * Data Access Layer: ElasticSearch Java API
+  * Data Access Layer: Spring Data JPA
   * Data Store: MongoDB  
 * data model \
 ![alt text](https://github.com/haimengsong/ocr-server/blob/master/course.png)
@@ -48,6 +48,9 @@ we use Redis as in-memory database to store the top 10 best courses for each ski
 currently we are just simply ranking the courses by its score
   
 ## Demo
+## Github
+Client Repo: https://github.com/haimengsong/ocr-client \
+Server Repo: https://github.com/haimengsong/ocr-server
 ## Future work
 
 
