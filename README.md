@@ -24,15 +24,27 @@ choose MongoDB as our data store for the following reasons:
 2. no need to support join and transaction (compared with relational database)
 3. write fast (compared with relational database)
 4. easy to manage data (compared with elasticsearch)
-* data scraping
+* data management
    * sources: Coursera (more in future work)
-   * technology: HtmlUnit, XPath
-   * workflow
+   * technology: Quartz, HtmlUnit, XPath
+   * architecture
+![alt text](https://github.com/haimengsong/ocr-server/blob/master/datamanager.png)
+   * workflow 
+   1. Quartz starts data manager
+   2. data manager starts url extractors
+   3. url extractors extract url from db or web
+   4. url extractors push urls into url queue
+   5. scheduler consumes urls from url queue
+   6. scheduler create tasks and run
+   7. tasks ask fetcher to fetch data from web 
+   8. tasks ask validator to validate if need parsing
+   9. tasks ask parser to parse data
+   10 tasks ask handler to write data into db
 * cache \
 we use Redis as in-memory database to store the top 10 best courses for each skill and each request can directly read the result from Redis
 * business logic 
-  * extract skills from job description 
-  * rank criteria
+  * how to extract skills from job description 
+  * rank criteria \
 currently we are just simply ranking the courses by its score
   
 ## Demo
