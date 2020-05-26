@@ -44,6 +44,9 @@ choose MongoDB as our data store for the following reasons:
 we use Redis as in-memory database to store the top 10 best courses for each skill and each request can directly read the result from Redis
 * business logic 
   * how to extract skills from job description 
+1. replace all non-alphanumerical character with empty space
+2. split words as string array
+3. count skill frequency based on pre-configured skill set as map
   * rank criteria \
 currently we are just simply ranking the courses by its score
   
